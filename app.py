@@ -811,7 +811,7 @@ with tab_player:
             if active_track.stream_url and "youtube.com" in active_track.stream_url:
                 embed_url = active_track.extra_metadata.get(
                     "embed_url",
-                    f"https://www.youtube.com/embed/{active_track.id}?autoplay=1&enablejsapi=1"
+                    f"https://www.youtube.com/embed/{active_track.id}?autoplay=1&enablejsapi=1&rel=0"
                 )
                 components.html(
                     f"""
@@ -821,6 +821,7 @@ with tab_player:
                                 title="{active_track.title}" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen 
                                 style="border-radius: 14px;">
                         </iframe>
